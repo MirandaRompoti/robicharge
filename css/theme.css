@@ -1,0 +1,1589 @@
+/*-------------------------
+-----Table-Of-Content------
+---------------------------
+01. Helper-Class 
+02. Page-Wrapper 
+03. Mainmenu-Area
+    3.1 DropDown-Menu
+    3.2 Menu-Right-Content 
+    3.3 Toggle-Search-Form 
+04. Header-Area-Start 
+05. Service-Box-Start 
+06. Feature-Product-Area
+07. gallery-Area
+08. Price-Table
+09. Testimonial-Area-Start 
+10. Video-Area-Start 
+11. Contact-Form-Start
+12. Preloader-CSS
+
+--------------------------
+01. Helper-Classes
+---------------------------*/
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.flex-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.verticle-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.lead-text {
+    color: #48d597;
+}
+
+.social-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-menu li {
+    display: inline-block;
+}
+
+.section-overlay-bg {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.section-overlay-bg:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5)
+}
+
+.section-padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.gray-bg {
+    background-color: #f3fbfe;
+    position: relative;
+    overflow: hidden;
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+.gray-bg:after,
+.gray-bg:before {
+    content: "";
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: url('../images/angle-box.png') repeat-x scroll top center;
+}
+
+.gray-bg:before {
+    top: 0px;
+    background-position: bottom center;
+}
+
+
+/*--------------------------
+1.1 Button-Style 
+---------------------------*/
+
+.mouse-dir {
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    z-index: 1;
+}
+
+.mouse-dir .dir-part {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #48d597;
+    -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.mouse-dir:hover .dir-part {
+    width: 600px;
+    height: 600px;
+}
+
+.button-lead,
+.button-white {
+    display: inline-block;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 50px;
+    background-color: #ffffff;
+    color: #48d597;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+    border: 0px solid #48d597;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 100px;
+}
+
+.button-lead:hover,
+.button-white:hover {
+    color: #000000;
+    -webkit-box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.button-play {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    line-height: 62px;
+    color: #48D597;
+    font-size: 20px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 16px 32px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 16px 32px 0 rgba(0, 0, 0, 0.05)
+}
+
+.button-play:hover {
+    color: #ffffff;
+}
+
+.button-play.mouse-dir .dir-part {
+    background-color: #F64032;
+}
+
+.button-white.mouse-dir .dir-part {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48D597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.button-lead {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48d597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    color: #ffffff;
+}
+
+.button-lead:hover {
+    color: #48d597;
+}
+
+.button-lead .dir-part {
+    background-color: #000000;
+}
+
+.play-button {
+    width: 100px;
+    height: 100px;
+    line-height: 102px;
+    background-color: #ffffff;
+    color: #48D597;
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 200px;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.06)
+}
+
+.play-button:hover {
+    background-color: #48D597;
+    color: #ffffff;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06)
+}
+
+.box-space {
+    margin-bottom: -30px;
+}
+
+.box-space>div {
+    margin-bottom: 30px;
+}
+
+.container-fluid.wide {
+    max-width: 1500px;
+}
+
+
+/*--------------------------
+02. Page-Wrapper 
+---------------------------*/
+
+.full-wrapper {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title .top-title {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 25px;
+    color: #48D597;
+}
+
+.section-title .main-title {
+    font-size: 56px;
+    line-height: 56px;
+    margin-bottom: 0px;
+    color: #0e2129;
+    position: relative;
+}
+
+.desc p:last-child {
+    margin-bottom: 0px;
+}
+
+.section-title.left-align {
+    text-align: left;
+}
+
+.section-title.left-align .title-bar {
+    margin-left: -5px;
+}
+
+
+/*---------------------------
+03. Mainmenu-Area
+--------------------------*/
+
+.site-brand {
+    font-size: 36px;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.site-brand a {
+    color: #ffffff;
+    display: inline-block;
+}
+
+.mainmenu-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mainmenu-area.affix {
+    position: fixed;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mainmenu-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.site-logo {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.site-logo .logo-image {
+    padding-left: 15px;
+    display: block;
+}
+
+.site-logo .logo-text a {
+    max-width: 300px;
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    color: #000000;
+}
+
+.mainmenu-area.affix .site-logo .logo-text a {
+    color: #FFFFFF;
+}
+
+.site-logo .logo-text {
+    margin-bottom: 0;
+}
+
+.transparent-menu .mainmenu-area {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mainmenu-area.affix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+.admin-bar .mainmenu-area.affix {
+    top: 30px;
+}
+
+.primary-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-menu>ul>li {
+    display: inline-block;
+    position: relative;
+    margin-left: -5px;
+    padding: 15px 0;
+}
+
+.primary-menu ul li li a {
+    border-left: 1px solid #000000;
+}
+
+.primary-menu>ul>li:first-child {
+    border-left: none;
+}
+
+.mainmenu-area #mainmenu ul li>a i.plus {
+    float: right;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    display: block;
+    position: relative;
+}
+
+.mainmenu-area #mainmenu ul li>a i.plus:before,
+.mainmenu-area #mainmenu ul li>a i.plus:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 2px;
+    display: block;
+    background-color: #ededed;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.mainmenu-area #mainmenu ul li>a i.plus:before {
+    -webkit-transform: translate(-50%, -50%) rotate(90deg);
+    -ms-transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.mainmenu-area #mainmenu ul li:hover>a i.plus:before {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    -ms-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.primary-menu ul li {
+    position: relative;
+}
+
+.primary-menu ul.nav li a {
+    padding: 0px 20px;
+    position: relative;
+    font-weight: 600;
+    color: #000000;
+    text-transform: capitalize;
+    background: none;
+    font-size: 15px;
+    display: block;
+}
+
+.mainmenu-area.affix .primary-menu ul.nav li a {
+    color: #FFFFFF;
+}
+
+.mainmenu-area.affix .primary-menu ul.nav li:hover>a {
+    color: #48D597;
+}
+
+.primary-menu ul.nav>li:last-child>a {
+    padding-right: 0px;
+}
+
+.primary-menu ul.nav>li.current-menu-item>a,
+.primary-menu ul.nav li:hover>a,
+.primary-menu ul.nav li:hover>i {
+    color: #48D597;
+}
+
+.menu-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.menu-buttons>* {
+    margin: 0 10px;
+}
+
+.menu-buttons:last-child {
+    margin-right: 0;
+}
+
+.nav-alignmenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+/*-----------------------
+3.1 DropDown-Menu
+------------------------*/
+
+.primary-menu ul.nav li {
+    position: relative;
+}
+
+.primary-menu ul.nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    -webkit-box-shadow: 0px 20px 40px 0px rgba(25, 31, 160, 0.1);
+    box-shadow: 0px 20px 40px 0px rgba(25, 31, 160, 0.1);
+}
+
+.primary-menu ul.nav .sub-menu .sub-menu {
+    left: auto;
+    right: 100%;
+    top: 0;
+}
+
+.primary-menu ul.nav .sub-menu li:hover>.sub-menu {
+    top: -15px;
+}
+
+.primary-menu ul.nav .sub-menu li {
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.primary-menu ul.nav .sub-menu li a {
+    padding: 2px 10px;
+    display: block;
+}
+
+.primary-menu ul.nav .sub-menu li.current-menu-item>a,
+.primary-menu ul.nav .sub-menu li.active>a,
+.primary-menu ul.nav .sub-menu li:hover>a {
+    color: #48D597;
+    border-left: 1px solid #ffcdbf;
+}
+
+.primary-menu ul.nav li:hover>.sub-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*----------------------
+ 3.2 Menu-Right-Content 
+----------------------*/
+
+.menu-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.navi-trigger {
+    width: 24px;
+    height: 17px;
+    line-height: 40px;
+    border: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: none;
+    margin-left: 30px;
+}
+
+.navi-trigger .bar {
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.affix .navi-trigger .bar {
+    background-color: #626262;
+}
+
+.navi-trigger .bar:nth-child(3) {
+    width: 13px;
+    margin-bottom: 0px;
+}
+
+.navi-trigger.active .bar:nth-child(1) {
+    width: 13px;
+}
+
+.navi-trigger.active .bar:nth-child(3) {
+    width: 24px;
+}
+
+
+/*---------------------
+04. Header-Area-Start 
+---------------------*/
+
+.header-area {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding-top: 250px;
+    padding-bottom: 150px;
+    background: #FFFFFF no-repeat scroll center bottom 0px / cover;
+}
+
+.header-area:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(14, 33, 41, 0.5);*/
+    z-index: -2;
+}
+
+.header-area .button-play {
+    position: relative;
+    z-index: 99;
+    margin-left: 25px;
+}
+
+.header-text {
+    z-index: 1;
+}
+
+.header-text .top-title {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.header-text .main-title {
+    font-size: 52px;
+    line-height: 62px;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.header-text .desc {
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+.section-title .desc p:last-child,
+.header-text .desc p:last-child {
+    margin-bottom: 0px;
+}
+
+.button-link {
+    position: relative;
+    padding: 15px 30px 15px 0px;
+    padding-right: 3.1rem;
+    font-size: 1.4rem;
+    color: #48D597;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    -webkit-transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+    -o-transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+    display: inline-block;
+}
+
+.button-link:before,
+.button-link:after {
+    content: '';
+    position: absolute;
+    -webkit-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+    z-index: -1;
+}
+
+.button-link:hover {
+    color: #fff;
+    -webkit-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    padding: 15px 30px 15px 30px;
+}
+
+.button-link:hover:before {
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.button-link:hover:after {
+    background: #48D597;
+    -webkit-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.button-link:before,
+.button-link:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+.button-link:before {
+    right: 0;
+    border: 1px solid #48D597;
+    border-left: 0;
+    border-right: 0;
+}
+
+.button-link:after {
+    left: 0;
+}
+
+.button-link:hover:before,
+.button-link:hover:after {
+    width: 100%;
+}
+
+.home-slider {
+    width: 80vw;
+    z-index: 2;
+}
+
+.home-slider .slick-prev,
+.home-slider .slick-next {
+    left: 0;
+    bottom: 0;
+    top: auto;
+}
+
+.home-slider .slick-prev {
+    left: -100px;
+}
+
+.home-slide-item {
+    -webkit-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.slick-current.home-slide-item {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.home-image {
+    border: 15px solid #ffffff;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.06);
+    margin: 100px 0px;
+}
+
+
+/*------------------------
+ 05. Service-Box-Start 
+ ------------------------*/
+
+.single-service {
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+    padding: 60px 40px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    text-align: center;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px)
+}
+
+.single-service:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+    -webkit-box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.single-service .title {
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.single-service .icon {
+    font-size: 60px;
+    color: #48D597;
+    margin-bottom: 35px;
+    background: -webkit-linear-gradient(#48d597, #239864);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.single-feature {
+    position: relative;
+    padding-left: 80px;
+    padding-bottom: 40px;
+}
+
+.single-feature:last-child {
+    padding-bottom: 0px;
+}
+
+.single-feature.align-right {
+    padding-left: 0px;
+    padding-right: 80px;
+    text-align: right;
+}
+
+.single-feature .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48D597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    text-align: center;
+    line-height: 60px;
+    border-radius: 100px;
+    color: #FCA86E;
+    font-size: 20px;
+    z-index: 1;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.single-feature.align-right .icon {
+    left: auto;
+    right: 0px;
+}
+
+.single-feature:before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 0px;
+    width: 2px;
+    height: 100%;
+    border-radius: 100px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48D597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.single-feature.align-right:before {
+    left: auto;
+    right: 30px;
+}
+
+.single-feature:last-child:before {
+    display: none;
+}
+
+.single-feature .icon:before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    background-color: #ffffff;
+    border-radius: 100px;
+    z-index: -1;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 1;
+}
+
+.single-feature:hover .icon:before {
+    opacity: 0;
+}
+
+.single-feature:hover .icon {
+    color: #ffffff;
+}
+
+.single-feature .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.feature-image {
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.feature-images {
+    margin-top: -50px;
+    margin-bottom: -50px;
+}
+
+
+/*--------------------------
+06. Feature-Product-Area
+----------------------------*/
+
+.pro-exp-box .top-title {
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 15px;
+    color: #48D597;
+}
+
+.pro-exp-box .title {
+    font-size: 36px;
+    line-height: 46px;
+    margin-bottom: 15px;
+}
+
+.pro-exp-box .price {
+    font-size: 26px;
+    color: #48D597;
+    margin-bottom: 15px;
+}
+
+.pro-exp-box .price del {
+    color: #282e44;
+}
+
+.pro-exp-box .desc {
+    margin-bottom: 15px;
+}
+
+.dot-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dot-list li:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 100px;
+    margin-right: 10px;
+    background-color: #acacac;
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px)
+}
+
+.pro-exp-box .dot-list {
+    margin-bottom: 50px;
+}
+
+.pro-exp-box .dot-list li {
+    margin-bottom: 5px;
+}
+
+.pro-exp-box .dot-list li:last-child {
+    margin-bottom: 0px;
+}
+
+
+/*--------------------------
+07. gallery-Area
+----------------------------*/
+
+.service-area,
+.gallery-area {
+    padding-bottom: 100px;
+}
+
+.single-gallery {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+}
+
+.single-gallery .gallery-image {
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.single-gallery .gallery-image img {
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.single-gallery:hover .gallery-image img {
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2)
+}
+
+.single-gallery .gallery-image:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.single-gallery:hover .gallery-image:after {
+    opacity: 0.9;
+}
+
+.single-gallery .gallery-image:before {
+    content: "\e611";
+    font-family: 'themify';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #48D597;
+    font-size: 30px;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.single-gallery:hover .gallery-image:after {
+    opacity: 0.9;
+}
+
+.single-gallery:hover .gallery-image:before {
+    opacity: 1;
+}
+
+
+/*------------------------
+08. Price-Table
+ -----------------------*/
+
+.price-table {
+    text-align: center;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    background-color: #ffffff;
+}
+
+.price-table:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+    -webkit-box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.06);
+}
+
+.price-table .price-header {
+    padding: 40px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48D597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.price-table .price-header:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+    background-color: #fff8f8;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price-table.active .price-header:before {
+    opacity: 0;
+}
+
+.price-table .price-header .info {
+    font-size: 30px;
+    font-weight: 400;
+    color: #0e2129;
+}
+
+.price-table .price-header .amount {
+    font-size: 60px;
+    color: #193B49;
+    line-height: 60px;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.price-table.active .price-header .info,
+.price-table.active .price-header .amount {
+    color: #ffffff;
+}
+
+.price-table .price-header .amount sup,
+.price-table .price-header .amount sub {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 26px;
+    display: inline-block;
+    position: relative;
+}
+
+.price-table .price-header .amount sup {
+    top: -22px;
+}
+
+.price-table .price-header .amount sub {
+    top: 0px;
+}
+
+.price-table .product-desc {
+    padding: 40px;
+    margin: 0px;
+    list-style: none;
+}
+
+.price-table .product-desc li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ededed;
+}
+
+.price-table .product-desc li:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px solid #ededed;
+}
+
+.price-table.active .button-lead {
+    color: #48d597;
+    background: #ffffff;
+}
+
+.price-table.active .button-lead .dir-part {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f64032+0,fda621+100 */
+    background: #48d597;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f64032', endColorstr='#fda621', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    opacity: 0.2;
+}
+
+
+/*------------------------
+09. Testimonial-Area-Start 
+ -------------------------*/
+
+.testimonial-area {
+    overflow: hidden;
+}
+
+.single-testimonial {
+    position: relative;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+.testimonial-slider .single-testimonial {
+    padding: 0px 50px;
+}
+
+.single-testimonial .quote {
+    font-size: 150px;
+    line-height: 150px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 30px;
+    color: rgba(0, 0, 0, 0.02);
+    z-index: -1;
+}
+
+.testimonial-page .single-testimonial .quote {
+    right: 60px;
+    bottom: 20px;
+}
+
+.single-testimonial .desc {
+    font-size: 24px;
+    color: #0e2129;
+    margin-bottom: 30px;
+    line-height: 34px;
+    font-weight: 500;
+}
+
+.single-testimonial .desc:after,
+.single-testimonial .desc:before {
+    content: '"';
+}
+
+.single-testimonial .client-photo {
+    width: 100px;
+    height: 100px;
+    line-height: 0px;
+    border-radius: 100px;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.single-testimonial .client-info .name {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.single-testimonial .client-info .sub-title {
+    font-size: 14px;
+    color: #282e44;
+}
+
+
+/*------------------------
+10. Video-Area-Start 
+ -----------------------*/
+
+.video-area {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-slider {
+    width: 100vw;
+}
+
+.single-video {
+    position: relative;
+    margin: 0px 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.single-video .video-image img {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-filter: brightness(1);
+    filter: brightness(1)
+}
+
+.single-video:hover .video-image img {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7)
+}
+
+.single-video .video-button {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ffffff;
+    text-align: center;
+    line-height: 60px;
+    color: #ffffff;
+    border-radius: 100px;
+}
+
+.single-video .video-button:hover {
+    background-color: #ffffff;
+    color: #48D597;
+}
+
+
+/*--------------------------
+11. Contact-Form-Start
+----------------------------*/
+
+.contact-area {
+    padding-top: 110px;
+}
+
+.contact-area:after {
+    display: none;
+}
+
+.input-box {
+    padding: 18px 20px;
+    width: 100%;
+    background-color: #ffffff;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    outline: none;
+    color: #0e2129;
+}
+
+.input-box:focus {
+    -webkit-box-shadow: 16px 16px 32px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 16px 16px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.contact-form .input-box {
+    margin-bottom: 30px;
+}
+
+.contact-form .form-double:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.contact-form .form-double .form-box {
+    width: calc(50% - 15px);
+    float: left;
+    margin-right: 30px;
+}
+
+.contact-form .form-double .form-box.left {
+    margin-right: 0;
+}
+
+.form-box {
+    position: relative;
+}
+
+.form-box .icon {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 100px;
+    color: #868a98;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.contact-form ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #868a98;
+}
+
+.contact-form ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #868a98;
+}
+
+.contact-form :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #868a98;
+}
+
+.contact-form :-moz-placeholder {
+    /* Firefox 18- */
+    color: #868a98;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.social-menu {
+    margin-bottom: -10px;
+}
+
+.social-menu a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 52px;
+    border: 1px solid #ededed;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #193B49;
+    margin: 0 5px 10px 5px;
+}
+
+.social-menu a:hover {
+    background-color: #48D597;
+    border: 1px solid #48D597;
+    color: #ffffff;
+}
+
+.copyright-text {
+    margin-top: 30px;
+    color: #6e7c90;
+    font-style: 14px;
+}
+
+
+/*----------------------
+12. Preloader-CSS
+ ---------------------*/
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ECF0F1;
+    z-index: 999999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+#scrollUp {
+    position: fixed;
+    right: 2%;
+    top: 100%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    border: 2px solid #48D597;
+    color: #48D597;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    z-index: 999;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#scrollUp.active {
+    top: calc(100% - 90px)
+}
+
+.mfp-zoom-out-cur #scrollUp.active {
+    top: 100%;
+}
+
+#scrollUp:hover {
+    background-color: #48D597;
+    color: #ffffff;
+}
