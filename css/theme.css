@@ -187,19 +187,22 @@
     display: inline-block;
     text-align: center;
     line-height: 62px;
-    color: #48D597;
+    color: #FFFFFF;
     font-size: 20px;
     border-radius: 100px;
-    background-color: #ffffff;
+    background-color: #48D597;
+    background: -o-linear-gradient(315deg, #48d597 0%, #239864 100%);
+    background: linear-gradient(135deg, #48d597 0%, #239864 100%);
     -webkit-box-shadow: 0px 16px 32px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0px 16px 32px 0 rgba(0, 0, 0, 0.05)
 }
 
 .button-play:hover {
-    color: #ffffff;
+    color: #48D597;
+
 }
 .button-play.mouse-dir .dir-part {
-    background-color: #F64032;
+    background-color: #000000;
 }
 
 .button-white.mouse-dir .dir-part {
