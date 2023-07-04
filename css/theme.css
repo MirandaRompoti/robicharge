@@ -198,7 +198,6 @@
 .button-play:hover {
     color: #ffffff;
 }
-
 .button-play.mouse-dir .dir-part {
     background-color: #F64032;
 }
@@ -346,7 +345,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     white-space: nowrap;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mainmenu-area.affix {
@@ -461,7 +460,7 @@
     width: 12px;
     height: 2px;
     display: block;
-    background-color: #ededed;
+    background-color: #000000;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -629,7 +628,7 @@
 .navi-trigger .bar {
     width: 24px;
     height: 2px;
-    background-color: #ffffff;
+    background-color: #000000;
     display: block;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -639,7 +638,7 @@
 }
 
 .affix .navi-trigger .bar {
-    background-color: #626262;
+    background-color: #FFFFFF;
 }
 
 .navi-trigger .bar:nth-child(3) {
@@ -703,6 +702,14 @@
     color: #000000;
     margin-bottom: 30px;
 }
+
+.header-text .main-title .robi {
+    color: #48D597;
+  }
+
+  .header-text .main-title .charge {
+    color: #000000;
+  }
 
 .header-text .desc {
     color: #000000;
@@ -1249,13 +1256,13 @@
 .price-table .product-desc li {
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .price-table .product-desc li:last-child {
     margin-bottom: 0px;
     padding-bottom: 0px;
-    border-bottom: 0px solid #ededed;
+    border-bottom: 0px solid #FFFFFF;
 }
 
 .price-table.active .button-lead {
@@ -1428,7 +1435,7 @@
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    border: 1px solid #ededed;
+    border: 1px solid #FFFFFF;
     border-radius: 5px;
     outline: none;
     color: #0e2129;
@@ -1512,7 +1519,7 @@
     width: 50px;
     height: 50px;
     line-height: 52px;
-    border: 1px solid #ededed;
+    border: 1px solid #FFFFFF;
     background-color: #ffffff;
     border-radius: 50%;
     color: #193B49;
