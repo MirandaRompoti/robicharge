@@ -1597,3 +1597,37 @@
     background-color: #48D597;
     color: #ffffff;
 }
+
+.title-container {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between the elements */
+    align-items: center;
+    cursor: pointer;
+}
+
+.about-ram-item-title {
+    margin-left: 30%;
+
+}
+
+
+.accordion-button {
+    padding: 5px 10px;
+    background-color: white; /* Blue color */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.daccordion__content {
+    padding: 0 18px;
+    display: none; /* By default content will be hidden */
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.dactive__item .daccordion__content {
+    display: block; /* Content will be shown when 'dactive__item' class is added */
+}
+

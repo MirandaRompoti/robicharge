@@ -29,6 +29,11 @@
                 } );
             }
         } );
+        $(".daccordion__title").click(function () {
+                var item = $(this).closest('.daccordion__item');
+                item.toggleClass('dactive__item');
+                item.find('.daccordion__content').slideToggle('fast');
+        });
 
     /*--------------------
     MAGNIFIC POPUP JS
