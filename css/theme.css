@@ -1631,3 +1631,11 @@
     display: block; /* Content will be shown when 'dactive__item' class is added */
 }
 
+
+.faq-content {
+    padding: 10px 15px;
+    background-color: white;  // Adjust as per your design
+    color: #ffffff;  // Adjust as per your design
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;  // Initially hidden
+}

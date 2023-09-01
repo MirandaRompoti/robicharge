@@ -358,6 +358,29 @@
             'background-position':'center bottom '+( -.2 * pr_scroll)+'px'
         });
     });
+    $(document).ready(function() {
+        $('.accordion-button').click(function() {
+            let expanded = $(this).attr('aria-expanded') === 'true';
+            let contentPanel = $(this).attr('aria-controls');
+
+            // Toggle aria-expanded attribute and icons
+            if (!expanded) {
+                $(this).attr('aria-expanded', 'true');
+                $(this).find('.icon-plus').hide();
+                $(this).find('.icon-minus').show();
+
+                // Display the associated content panel
+                $('#' + contentPanel).slideDown();
+            } else {
+                $(this).attr('aria-expanded', 'false');
+                $(this).find('.icon-plus').show();
+                $(this).find('.icon-minus').hide();
+
+                // Hide the associated content panel
+                $('#' + contentPanel).slideUp();
+            }
+        });
+    });
 
 
 })(jQuery);
